@@ -1,0 +1,23 @@
+context ('Product Tests (CRUD)', () => {
+
+
+    beforeEach(() => {
+
+        cy.visit('');
+
+    })
+
+    it("Creates a Product", () => {
+
+        cy.get('.mat-flat-bottom, .mat-primary').click();
+        cy.url().should('include', '/product-add');
+        cy.get('#mat-input-0').type("carrots");
+        cy.get('#mat-input-1').type("orange vegetable");
+        cy.get('#mat-input-2').type("10");
+        cy.get('[type="submit"]').click();
+        cy.get('h2').should('contain','carrots');
+    })
+
+
+
+})
